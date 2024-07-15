@@ -1,6 +1,5 @@
 const Input = ({ label, required, err, renderInput, ...rest }) => {
 
-
     // renderInput is a functional component was called outside 
     // then excute at Input component and push out parameter (rest, err)
     console.log('err', err)

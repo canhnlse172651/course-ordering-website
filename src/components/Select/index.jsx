@@ -2,8 +2,6 @@
 // components/Select/index.jsx
 const Select = ({ options, err, ...rest }) => {
 
-  console.log('errSelect', err)
-
   // rest include name, value, onChange ...
     return (
       <select {...rest} className={`form__input`} 

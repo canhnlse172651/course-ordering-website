@@ -1,3 +1,6 @@
+import Button from "@/components/Button";
+import PATHS from "@/constant/path";
+
 function CallregisterSection() {
   return (
     <section className="callregister">
@@ -12,12 +15,12 @@ function CallregisterSection() {
             Circle để cùng nhau học hỏi, lan toả và chia sẻ những kinh nghiệm
             quý giá cho cộng đồng.
           </p>
-          <a href="courses.html" className="btn btn--primary">
+          <Button link={PATHS.COURSE.INDEX} className="btn btn--primary">
             Tham gia Khoá học
-          </a>
-          <a href="contact.html" className="btn btn--border --black">
+          </Button>
+          <Button link = {PATHS.CONTACT} className="btn btn--border --black">
             Liên hệ tư vấn
-          </a>
+          </Button>
         </div>
       </div>
     </section>

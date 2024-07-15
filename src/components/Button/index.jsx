@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-function Button({ variant = "primary", className, children, link, ...rest }) {
+function Button({ variant = "primary", className, disable, children, link, ...rest }) {
   let variantClass = "";
 
   switch (variant) {
@@ -18,14 +18,19 @@ function Button({ variant = "primary", className, children, link, ...rest }) {
 
   if (!!link) {
     return (
-      <Link to={link} className={`${variantClass} ${className}`} {...rest}>
+      <Link to={link} className={`${variantClass} ${className || ""}`} {...rest}>
         {children}{" "}
       </Link>
     );
   }
 
+  if(disable){
+    variantClass = "btn btn--grey";
+    rest.onClick = () => {}
+  }
+
   return (
-    <button className={`${variantClass} ${className}`} {...rest}>
+    <button className={`${variantClass} ${className || ""}`} {...rest}>
       {children}
     </button>
   );

@@ -5,7 +5,6 @@ import Sidebar from "./Sidebar";
 function StudentProfile() {
   const { profile } = useAuthenContext();
 
-   console.log('profile', profile)
 
   return (
     <main className="mainwrapper profilepage">

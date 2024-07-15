@@ -21,8 +21,8 @@ export const AuthenContextProvider = ({ children }) => {
   const [paymentInfor, setPaymentInfor] = useState([]);
 
 
+  console.log('courseInfor', courseInfor)
  
-
 
   const navigate = useNavigate();
 
@@ -31,11 +31,11 @@ export const AuthenContextProvider = ({ children }) => {
   };
 
   useEffect(() => {
-    if (!!localToken.get()?.accessToken){
+    if (!!localToken.get()?.accessToken) {
       handleGetProfile?.();
       handleGetProfileCourse?.();
       handleGetProfilePayment?.();
-    } 
+    }
   }, []);
 
   const handleShowModal = (type_modal, path = null) => {
@@ -63,7 +63,7 @@ export const AuthenContextProvider = ({ children }) => {
 
         // get infor profile
         handleGetProfile?.();
-      
+
         handleShowModalClose();
         message.success("Đăng nhập thành công");
 
@@ -133,8 +133,9 @@ export const AuthenContextProvider = ({ children }) => {
   const handleGetProfileCourse = async () => {
     try {
       const res = await orderService.getCourseHistories();
-      const orderedCourses = res?.orders || [];
-      console.log('orderedCourses', orderedCourses)
+     
+
+      const orderedCourses = res?.data?.data?.orders || [];
 
       setCourseInfor(orderedCourses);
     } catch (error) {
@@ -142,11 +143,12 @@ export const AuthenContextProvider = ({ children }) => {
     }
   };
 
-
   const handleGetProfilePayment = async () => {
     try {
       const res = await orderService.getPaymentHistories();
-      const payments = res?.orders || [];
+
+     
+      const payments = res?.data?.data?.orders || [];
       setPaymentInfor(payments);
     } catch (error) {
       console.log("handleGetProfilePayment - error", error);
@@ -165,18 +167,12 @@ export const AuthenContextProvider = ({ children }) => {
       introduce: formData.introduce || "",
     };
 
-    console.log("payload", payload);
     try {
       const res = await authenService.updateProfile(payload);
 
-       if(res?.data?.data?.id){
-        console.log("res- updateProfile", res);
-       
+      if (res?.data?.data?.id) {
         handleGetProfile?.();
-       }
-
-      
-
+      }
     } catch (error) {
       console.log("handleUpdateProfile - error", error);
     }
@@ -197,8 +193,8 @@ export const AuthenContextProvider = ({ children }) => {
         handleGetProfilePayment,
         handleUpdateProfile,
         courseInfor,
-        paymentInfor
-       
+        paymentInfor,
+        
       }}
     >
       {children}

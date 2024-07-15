@@ -1,13 +1,8 @@
-import { useAuthenContext } from "@/components/context/AuthenContext";
-import { useEffect, useState } from "react";
+
 
 function Sidebar({ firstName, introduce, email, phone, website }) {
 
-  
-
-
-  console.log('render-sidebar')
-
+  console.log('introduce', introduce)
   return (
     <div className="sidebar">
       <div className="sidebar__info">

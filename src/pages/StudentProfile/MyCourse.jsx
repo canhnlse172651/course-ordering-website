@@ -5,16 +5,30 @@ import { Empty } from "antd";
 function MyCourse() {
   const { courseInfor } = useAuthenContext();
 
-  console.log("courseInfor", courseInfor);
-
+  
   return (
     <div className="tab__content-item" style={{ display: "block" }}>
       <div className="courses__list">
         {courseInfor?.length === 0 ? (
-          <Empty description="No found any course" style={{margin:"0 auto"}} />
+          <Empty
+            description="No found any course"
+            style={{ margin: "0 auto" }}
+          />
         ) : (
           courseInfor?.map((course, index) => {
-            <CourseItem key={index + new Date()} {...course} />;
+            const { name, price, image, tags, title, slug } = course.course;
+
+            return (
+              <CourseItem
+                key={index + new Date()}
+                name={name}
+                price={price}
+                image={image}
+                tags={tags}
+                title={title}
+                slug={slug}
+              />
+            );
           })
         )}
       </div>

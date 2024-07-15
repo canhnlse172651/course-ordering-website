@@ -29,6 +29,8 @@ function CourseDetailPage() {
     loading : coursesLoading
   } = useQuery (courseService.getCourses)
 
+  
+
 
   const {
     data : courseDetailData,
@@ -70,7 +72,7 @@ function CourseDetailPage() {
     <main className="mainwrapper coursedetailpage">
      <HeroDetailSection {...modifiedProps}  loading={courseDetailLoading}/>
      <ContentDetailSection   {...modifiedProps} loading={courseDetailLoading} />
-     <FeaturedSection  />
+     {/* <FeaturedSection  /> */}
       <FeqSection  questions={questions}  loading={questionLoading}/>
      <CoursesSection   courses={courses}  loading={coursesLoading} />
     </main>

@@ -144,6 +144,7 @@ function MyInfor() {
           renderInput={(inputProps) => {
             return <TextArea {...inputProps} />;
           }}
+          {...register("introduce")}
         />
 
         <Button

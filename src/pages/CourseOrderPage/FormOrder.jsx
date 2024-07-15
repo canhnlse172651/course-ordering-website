@@ -1,74 +1,58 @@
+import Input from "@/components/Input";
+import Select from "@/components/Select";
 
+function FormOrder({ register, types, disable }) {
+  const typeOptions =
+    types?.length > 0
+      ? [
+          { value: "", label: "--" },
+          ...types.map((type) => ({ value: type, label: type })),
+        ]
+      : [{ value: "", label: "--" }];
 
-function FormOrder() {
-
-    return (
-        <div className="itemorder formorder">
-        <h3 className="title --t3">Thông tin cá nhân</h3>
-        <div className="boxorder">
-          <div className="form">
-            <div className="form-container">
-              <div className="form-group">
-                <label className="label">
-                  Họ và tên <span>*</span>
-                </label>
-                <input
-                  defaultValue="Nghĩa Trần"
-                  type="text"
-                  className="form__input"
-                />
-              </div>
-              <div className="form-group">
-                <label className="label">
-                  Email <span>*</span>
-                </label>
-                <input
-                  defaultValue="nghiatran@2018@gmail.com"
-                  disabled
-                  type="email"
-                  className="form__input"
-                />
-              </div>
-            </div>
-            <div className="form-container">
-              <div className="form-group">
-                <label className="label">
-                  Số điện thoại <span>*</span>
-                </label>
-                <input
-                  defaultValue={928338373}
-                  type="text"
-                  className="form__input"
-                />
-              </div>
-              <div className="form-group">
-                <label className="label">
-                  Hình thức học <span>*</span>
-                </label>
-                <div className="select select-change">
-                  <div className="head form__input">Học Offline</div>
-                  <div className="sub" style={{ display: "none" }}>
-                    <a href="#" data-value="offline">
-                      Học Offline
-                    </a>
-                    <a href="#" data-value="online">
-                      Học Online
-                    </a>
-                  </div>
-                  <input
-                    type="text"
-                    name="type"
-                    hidden
-                    defaultValue="offline"
-                  />
-                </div>
-              </div>
-            </div>
+  return (
+    <div className="itemorder formorder">
+      <h3 className="title --t3">Thông tin cá nhân</h3>
+      <div className="boxorder">
+        <div className="form">
+          <div className="form-container">
+            <Input
+              label="Họ Và Tên"
+              required
+              placeholder="Họ Và Tên"
+              {...register("firstName")}
+              disabled = {disable}
+            />
+            <Input
+              label="Email"
+              required
+              placeholder="Email của bạn"
+              {...register("email")}
+              disabled = {disable}
+            />
+          </div>
+          <div className="form-container">
+            <Input
+              label="Số điện thoại"
+              required
+              placeholder="Số điện thoại"
+              {...register("phone")}
+              disabled = {disable}
+            />
+            <Input
+              label="Hình thức học"
+              required
+              renderInput={(inputProps)=> {
+                return <Select options={typeOptions} {...inputProps} />
+              }}
+              {...register("studyForm")}
+              disabled = {disable}
+            />
           </div>
         </div>
       </div>
-    )
+    </div>
+  );
 }
-
 
 export default FormOrder;

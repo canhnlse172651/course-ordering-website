@@ -22,11 +22,12 @@ function HeroSection() {
       <div className="hero__content">
         <div className="container">
           <h1 className="title --white">
-            Học Viện Đào Tạo
-            <br /> Lập Trình Front-End Thực Chiến
+            {/* Học Viện Đào Tạo */}
+            {/* <br /> Lập Trình Front-End Thực Chiến */}
+             Học Lập Trình Online
           </h1>
           <p className="text">
-            Dạy từ kinh nghiệm, học từ thực tế để tạo ra sản phẩm có giá trị.
+            {/* Dạy từ kinh nghiệm, học từ thực tế để tạo ra sản phẩm có giá trị. */}
           </p>
           <Button onClick={_start} className="btnmodal" data-modal="mdlogin">
             Bắt đầu học
@@ -50,6 +51,7 @@ function HeroSection() {
           className="hero__background-img"
           src="img/bg-hero-home.jpg"
           alt="CFD Training Background"
+         
         />
         <div
           className="hero__background-video"

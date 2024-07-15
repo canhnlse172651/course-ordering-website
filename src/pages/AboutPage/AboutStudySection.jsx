@@ -1,3 +1,5 @@
+import Button from "@/components/Button";
+import PATHS from "@/constant/path";
 
 
 function AboutStudySection () {
@@ -27,7 +29,7 @@ function AboutStudySection () {
           </div>
           <div className="aboutstudy__item">
             <div className="aboutstudy__item-img">
-              <img src="img/cfd-circle-online.jpg" alt />
+              <img src="/img/cfd-circle-online.jpg" alt />
             </div>
             <div className="aboutstudy__item-content">
               <h4 className="title --t3">Học online với lớp offline.</h4>
@@ -37,14 +39,14 @@ function AboutStudySection () {
                 Meet, gọi video chia sẻ màn hình và được giảng viên, mentor hỗ
                 trợ như khi bạn học offline.
               </div>
-              <a href="courses.html" className="btn btn--primary">
+              <Button link={PATHS.COURSE.INDEX} >
                 Khám phá
-              </a>
+              </Button>
             </div>
           </div>
           <div className="aboutstudy__item">
             <div className="aboutstudy__item-img">
-              <img src="img/cfd-circle-video.jpg" alt />
+              <img src="/img/cfd-circle-video.jpg" alt />
             </div>
             <div className="aboutstudy__item-content">
               <h4 className="title --t3">
@@ -56,9 +58,9 @@ function AboutStudySection () {
                 hỗ trợ từ giảng viên thông qua Google Meet hoặc đội ngũ mentor
                 của CFD Circle.
               </div>
-              <a href="courses.html" className="btn btn--primary">
+              <Button link={PATHS.COURSE.INDEX} >
                 Khám phá
-              </a>
+              </Button>
             </div>
           </div>
         </div>
