@@ -4,12 +4,39 @@ import { localToken } from "@/utils/token";
 import Button from "../Button";
 import { Link } from "react-router-dom";
 import PATHS from "@/constant/path";
+import { useEffect } from "react";
 function HeaderAuthen() {
   const { handleShowModal, handleLogout, profile } = useAuthenContext();
 
   const { profileImage, firstName } = profile || {};
 
-  console.log("profile", profile);
+  useEffect(() => {
+    function hideDropDown() {
+      let dropdown = $(".dropdown");
+      dropdown.removeClass("active");
+    }
+    function dropDown() {
+      let btndropdown = $("[data-dropdown]"),
+        dropdown = $(".dropdown");
+      btndropdown.on("click", function (e) {
+        e.stopPropagation();
+        let data = $(this).attr("data-dropdown");
+        dropdown.removeClass("active");
+        $(`.${data}`).toggleClass("active");
+        closeMenu();
+      });
+      dropdown.on("click", function (e) {
+        // e.stopPropagation();
+      });
+
+      $(document).click(function () {
+        hideDropDown();
+      });
+    }
+    const myTimeOut = setTimeout(() => {
+      dropDown();
+    }, 200);
+  }, [profile]);
 
   const _onClick = (e) => {
     e.preventDefault();
