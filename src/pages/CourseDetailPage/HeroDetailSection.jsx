@@ -68,7 +68,7 @@ function HeroDetailSection ({
               Chia sẻ
               <i>
                 <img
-                  src="/https://cfdcircle.vn/img/iconshare.svg"
+                  src="https://cfdcircle.vn/img/iconshare.svg"
                   alt="CFD Circle"
                 />
               </i>

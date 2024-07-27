@@ -6,7 +6,7 @@ import FeqSection from "./FaqSection";
 import CoursesSection from "./CoursesSection";
 import { useMutation } from "@/hooks/useMutation";
 import { courseService } from "@/services/courseService";
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { useParams } from "react-router-dom";
 import { ROLE } from "@/constant/role";
 import { formartDate } from "@/utils/formartDate";
@@ -59,14 +59,15 @@ function CourseDetailPage() {
   
   const orderLink = '/course-order/' + courseSlug;
 
-  const modifiedProps = {
-    ...courseDetail,
-    teacherInfor : teams?.find((item) => item.tags.includes(ROLE.teacher)),
-    startDate : formartDate(startDate,"DD/MM/YYYY"),
-    price : formatCurrency(price),
-    orderLink,
-
-  }
+  const modifiedProps = useMemo(() => {
+    return {
+      ...courseDetail,
+      teacherInfor: teams?.find((item) => item.tags.includes(ROLE.teacher)),
+      startDate: formartDate(startDate, "DD/MM/YYYY"),
+      price: formatCurrency(price),
+      orderLink,
+    };
+  }, [courseDetail, teams, startDate, price, orderLink]);
  
   return (
     <main className="mainwrapper coursedetailpage">
