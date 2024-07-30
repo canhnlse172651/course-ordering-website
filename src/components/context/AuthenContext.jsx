@@ -36,7 +36,7 @@ export const AuthenContextProvider = ({ children }) => {
       handleGetProfileCourse?.();
       handleGetProfilePayment?.();
     }
-  }, []);
+  }, [JSON.stringify(profile)]);
 
   const handleShowModal = (type_modal, path = null) => {
     setShowMadal(type_modal || "");

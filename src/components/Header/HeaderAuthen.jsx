@@ -1,7 +1,6 @@
 import { MODAL_TYPE } from "@/constant/general";
 import { useAuthenContext } from "../context/AuthenContext";
 import { localToken } from "@/utils/token";
-import Button from "../Button";
 import { Link } from "react-router-dom";
 import PATHS from "@/constant/path";
 import { useEffect } from "react";
