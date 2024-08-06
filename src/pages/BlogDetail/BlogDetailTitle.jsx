@@ -2,7 +2,7 @@ import { formartDate } from "@/utils/formartDate";
 
 function BlogDetailTitle({blog}) {
 
-  console.log('blogData', blog)
+  
   return (
     <div className="blogdetail__title">
       <h1 className="title --t2">

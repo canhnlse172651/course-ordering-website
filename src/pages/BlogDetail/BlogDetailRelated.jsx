@@ -1,93 +1,65 @@
-function BlogDetailRelated() {
+import { Link } from "react-router-dom";
+import PATHS from "@/constant/path";
+import { formartDate } from "@/utils/formartDate";
+function BlogDetailRelated({ relatedBlog }) {
+  const halfRelatedBlogs = relatedBlog.slice(0, 3);
+
+  console.log("halfRelatedBlogs", halfRelatedBlogs);
+
   return (
     <div className="blogdetail__related">
       <h2 className="blogdetail__related-title title --t2">
         Bài viết liên quan
       </h2>
       <div className="blog__list">
-        <div className="blog__list-item">
-          <div className="img">
-            <a href="blog-detail.html">
-              <img
-                src="https://cfdcircle.vn/files/thumbnails/ZettvAFqback8Jzxiyz3DVPjvkoBUhUJY94DJwSK.jpg"
-                alt="Khóa học CFD"
-                className="course__thumbnail"
-              />
-            </a>
-          </div>
-          <div className="content">
-            <p className="label">Dev</p>
-            <h2 className="title --t3">
-              <a href="blog-detail.html">
-                18 xu hướng web animation nổi bật trong năm 2023
-              </a>
-            </h2>
-            <div className="content__info">
-              <div className="user">
-                <div className="user__img">
-                  <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
-                </div>
-                <p className="user__name">Trần Nghĩa</p>
+        {halfRelatedBlogs?.map((blog, index) => {
+          const {
+            image,
+            id,
+            name,
+            slug,
+            description,
+            category,
+            author,
+            updatedAt,
+          } = blog;
+
+          const pathBlogDetail = PATHS.BLOG.INDEX + `/${slug}`;
+
+          return (
+            <div className="blog__list-item" key={index}>
+              <div className="img">
+                <Link to={pathBlogDetail}>
+                  <img
+                    src={
+                      image ||
+                      "https://cfdcourses.cfdcircle.vn/images/blog/oCbb35rOM1FsNEYqcOLIk-Screenshot%202024-03-06%20at%2019.57.08.png"
+                    }
+                    alt="Blog CFD"
+                    className="course__thumbnail"
+                  />
+                </Link>
               </div>
-              <div className="date">10/12/2022</div>
-            </div>
-          </div>
-        </div>
-        <div className="blog__list-item">
-          <div className="img">
-            <a href="blog-detail.html">
-              <img
-                src="https://cfdcircle.vn/files/thumbnails/Tey1o9gldaFwCrCvQ0vgSDKuE6CKFYnBm4dWIVps.jpg"
-                alt="Khóa học CFD"
-                className="course__thumbnail"
-              />
-            </a>
-          </div>
-          <div className="content">
-            <p className="label">Dev</p>
-            <h2 className="title --t3">
-              <a href="blog-detail.html">
-                Zustand - State Management là gì? Liệu có thể so sánh được với
-                Redux hay không?
-              </a>
-            </h2>
-            <div className="content__info">
-              <div className="user">
-                <div className="user__img">
-                  <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
+              <div className="content">
+                <p className="label">Dev</p>
+                <h2 className="title --t3">
+                  <Link to={pathBlogDetail}>{name}</Link>
+                </h2>
+                <div className="content__info">
+                  <div className="user">
+                    <div className="user__img">
+                      <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
+                    </div>
+                    <p className="user__name">{author}</p>
+                  </div>
+                  <div className="date">
+                    {formartDate(updatedAt, "DD/MM/YYYY")}
+                  </div>
                 </div>
-                <p className="user__name">Trần Nghĩa</p>
               </div>
-              <div className="date">10/12/2022</div>
             </div>
-          </div>
-        </div>
-        <div className="blog__list-item">
-          <div className="img">
-            <a href="blog-detail.html">
-              <img
-                src="https://cfdcircle.vn/files/thumbnails/esliqep9bvqPUmju6zn1Cf6cFBBwNXhcZlwHcwtL.jpg"
-                alt="Khóa học CFD"
-                className="course__thumbnail"
-              />
-            </a>
-          </div>
-          <div className="content">
-            <p className="label">Dev</p>
-            <h2 className="title --t3">
-              <a href="blog-detail.html">Tất tần tật về Shorthands trong CSS</a>
-            </h2>
-            <div className="content__info">
-              <div className="user">
-                <div className="user__img">
-                  <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
-                </div>
-                <p className="user__name">Trần Nghĩa</p>
-              </div>
-              <div className="date">10/12/2022</div>
-            </div>
-          </div>
-        </div>
+          );
+        })}
       </div>
     </div>
   );

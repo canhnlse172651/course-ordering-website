@@ -21,7 +21,7 @@ export const AuthenContextProvider = ({ children }) => {
   const [paymentInfor, setPaymentInfor] = useState([]);
 
 
-  console.log('courseInfor', courseInfor)
+  
  
 
   const navigate = useNavigate();
@@ -79,7 +79,7 @@ export const AuthenContextProvider = ({ children }) => {
         console.log("Đăng nhập thất bại");
       }
     } catch (error) {
-      console.log("error", error);
+        message.error("Đăng nhập thất bại")
       //use toast
     } finally {
       callBack?.();

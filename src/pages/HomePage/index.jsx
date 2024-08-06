@@ -48,16 +48,16 @@ function HomePage() {
   const questions = faqData?.questions || []
 
 
-  const {
-    data: galleryData,
-    error: galleryError,
-    loading: galleryLoading,
-    refetch : refetchGallery,
-  } = useQuery(galleryService.getAllGalleries);
-  console.log('galleryData', galleryData)
+  // const {
+  //   data: galleryData,
+  //   error: galleryError,
+  //   loading: galleryLoading,
+  //   refetch : refetchGallery,
+  // } = useQuery(galleryService.getAllGalleries);
 
   
-  const galleryImage  = galleryData?.galleries[0]?.images || [];
+  // const galleryImage  = galleryData?.galleries[0]?.images || [];
+
 
  
 
@@ -72,7 +72,7 @@ function HomePage() {
       <TestimonialSection />
       {/* --------------------------------faq-------------------------------- */}
       <FaqSection  questions = {questions} loading = {faqLoading}  />
-      <GallerySection galleries = {galleryImage} loading = {galleryLoading}  />
+      {/* <GallerySection galleries = {galleryImage} loading = {galleryLoading}  /> */}
       <CallregisterSection />
     </main>
   );

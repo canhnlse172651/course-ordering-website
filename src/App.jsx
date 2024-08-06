@@ -43,6 +43,7 @@ function App() {
 
         <Route path={PATHS.CONTACT} element={<ContactPage />} />
         <Route path={PATHS.PRIVACY} element={<PrivacyPage />} />
+        <Route path={PATHS.PAYMENT} element={<PrivacyPage />} />
 
         <Route />
       </Route>

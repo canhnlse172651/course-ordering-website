@@ -1,8 +1,11 @@
-function BlogDetailContent() {
+function BlogDetailContent({blog}) {
+
+
+  
   return (
     <div className="blogdetail__content">
       <img
-        src="https://cfdcircle.vn/files/thumbnails/ebQvh5lMnPglamK4Q8DDWdoyzTnHLcDej5KJnlJh.jpg"
+        src= {blog.image || "https://cfdcircle.vn/files/thumbnails/ebQvh5lMnPglamK4Q8DDWdoyzTnHLcDej5KJnlJh.jpg"}
         alt="Post thumnail"
       />
       <div className="blogdetail__content-entry">
@@ -190,11 +193,11 @@ function BlogDetailContent() {
       <div className="blogdetail__line" />
       <div className="blogdetail__content-social btngroup">
         <a href="#" className="btn btn-fb">
-          <img src="img/icon-fb-share.svg" alt />
+          <img src="/img/icon-fb-share.svg" alt />
           <span>Share</span>
         </a>
         <a href="#" className="btn btn-linkedin">
-          <img src="img/icon-in-share.svg" alt />
+          <img src="/img/icon-in-share.svg" alt />
           <span>Share</span>
         </a>
       </div>

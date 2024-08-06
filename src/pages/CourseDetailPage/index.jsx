@@ -52,6 +52,8 @@ function CourseDetailPage() {
 
   const courses = coursesData?.courses || []
 
+  
+
   const courseDetail = courseDetailData?.data
 
 

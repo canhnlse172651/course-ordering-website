@@ -19,8 +19,8 @@ function BlogList({ blogsByCate }) {
               <div className="img">
                 <Link to={pathBlogDetail}>
                   <img
-                    src={image}
-                    alt="Khóa học CFD"
+                    src={image || "https://cfdcourses.cfdcircle.vn/images/blog/oCbb35rOM1FsNEYqcOLIk-Screenshot%202024-03-06%20at%2019.57.08.png"}
+                    alt="Blog CFD"
                     className="course__thumbnail"
                   />
                 </Link>
@@ -28,12 +28,12 @@ function BlogList({ blogsByCate }) {
               <div className="content">
                 <p className="label">{category.name}</p>
                 <h2 className="title --t3">
-                  <Link to="blog-detail.html">{name}</Link>
+                  <Link to={pathBlogDetail}>{name}</Link>
                 </h2>
                 <div className="content__info">
                   <div className="user">
                     <div className="user__img">
-                      <img src="img/avatar_nghia.jpg" alt="Avatar teacher" />
+                      <img src="/img/avatar_nghia.jpg" alt="Avatar teacher" />
                     </div>
                     <p className="user__name">{author}</p>
                   </div>
