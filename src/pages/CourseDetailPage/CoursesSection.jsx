@@ -28,7 +28,7 @@ function CoursesSection({courses, loading}) {
         </div>
         <div className="courses__list">
             {
-               !loading && relatedCourses?.length === 0 ? (<Empty description="No found any courses" />) :
+               !loading && relatedCourses?.length === 0 ? (<Empty description="No found any courses" style={{ margin: "0 auto" }}/>) :
                (
                  relatedCourses?.map((course ,index) => {
 
