@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Footter from "@/components/Footer";
-import Loading from "@/components/PageLoading";
+// import Loading from "@/components/PageLoading";
 import Nav from "@/components/Nav";
 import Overlay from "@/components/Overlay";
 import LoginModel from "@/components/LoginModal";
@@ -11,7 +11,7 @@ function MainLayout() {
   return (
     <MainContextProvider>
       <AuthenContextProvider>
-        <Loading />
+        {/* <Loading /> */}
         <Header />
         <Nav />
         <Overlay />
