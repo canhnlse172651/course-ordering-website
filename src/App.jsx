@@ -24,11 +24,8 @@ function App() {
         <Route path={PATHS.COURSE.INDEX} element={<CoursePage />} />
         <Route path={PATHS.COURSE.DETAIL} element={<CourseDetailPage />} />
 
-        
-         
-          <Route path={PATHS.BLOG.INDEX} element={<BlogPage />}/>
-          <Route path={PATHS.BLOG.DETAIL} element={<BlogDetail />} />
-      
+        <Route path={PATHS.BLOG.INDEX} element={<BlogPage />} />
+        <Route path={PATHS.BLOG.DETAIL} element={<BlogDetail />} />
 
         <Route path={PATHS.ABOUT} element={<AboutPage />} />
 

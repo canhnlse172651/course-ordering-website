@@ -20,10 +20,6 @@ export const AuthenContextProvider = ({ children }) => {
   const [courseInfor, setCourseInfor] = useState([]);
   const [paymentInfor, setPaymentInfor] = useState([]);
 
-
-  
- 
-
   const navigate = useNavigate();
 
   const handlePrivateRegister = (state) => {
@@ -79,7 +75,7 @@ export const AuthenContextProvider = ({ children }) => {
         console.log("Đăng nhập thất bại");
       }
     } catch (error) {
-        message.error("Đăng nhập thất bại")
+      message.error("Đăng nhập thất bại");
       //use toast
     } finally {
       callBack?.();
@@ -133,7 +129,6 @@ export const AuthenContextProvider = ({ children }) => {
   const handleGetProfileCourse = async () => {
     try {
       const res = await orderService.getCourseHistories();
-     
 
       const orderedCourses = res?.data?.data?.orders || [];
 
@@ -147,7 +142,6 @@ export const AuthenContextProvider = ({ children }) => {
     try {
       const res = await orderService.getPaymentHistories();
 
-     
       const payments = res?.data?.data?.orders || [];
       setPaymentInfor(payments);
     } catch (error) {
@@ -194,7 +188,6 @@ export const AuthenContextProvider = ({ children }) => {
         handleUpdateProfile,
         courseInfor,
         paymentInfor,
-        
       }}
     >
       {children}

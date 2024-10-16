@@ -2,7 +2,9 @@ import { useEffect } from "react";
 import { Empty } from "antd";
 import CourseItem from "@/components/CourseItem";
 
-function CourseComingSection({ courses = [], loading }) {
+function CourseComingSection({ commingCourses, loading }) {
+
+  console.log('🚀---->commingCourses', commingCourses);
   useEffect(() => {
     function courseComingList() {
       let courseComingSlider = $("#coursecoming__slider");
@@ -25,10 +27,10 @@ function CourseComingSection({ courses = [], loading }) {
       });
     }
 
-    if (!!courses?.length) {
+    if (!!commingCourses?.length) {
       courseComingList();
     }
-  }, [JSON.stringify(courses)]);
+  }, [JSON.stringify(commingCourses)]);
 
   return (
     <section className="coursecoming --scpadding">
@@ -47,9 +49,9 @@ function CourseComingSection({ courses = [], loading }) {
           </div>
         </div>
       </div>
-      {!loading && courses?.length === 0 ? <Empty description="No found the courses" /> : (
+      {!loading && commingCourses?.length === 0 ? <Empty description="No found the courses" /> : (
         <div className="coursecoming__list" id="coursecoming__slider">
-          {courses?.map((course, index) => {
+          {commingCourses?.map((course, index) => {
             return (
               <CourseItem type="slider" {...course} key={course.id || index + new Date()} />
             );

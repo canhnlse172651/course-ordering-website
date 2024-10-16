@@ -26,7 +26,11 @@ function HomePage() {
   const commingCourses = courses.filter((course) => {
     return course?.startDate && new Date(course?.startDate) > new Date();
   });
-
+  
+  // If commingCourses is empty, fallback to courses
+  const finalCommingCourses = commingCourses.length > 0 ? commingCourses : courses;
+  
+  
   const {
     data: coachData,
     error: coachError,
@@ -59,12 +63,11 @@ function HomePage() {
   // const galleryImage  = galleryData?.galleries[0]?.images || [];
 
 
- 
 
   return (
     <main className="mainwrapper">
       <HeroSection />
-      <CourseComingSection courses={commingCourses} loading={courseLoading} />
+      <CourseComingSection commingCourses={finalCommingCourses} loading={courseLoading} />
       <CourseSection  courses={courses}  loading={courseLoading} />
        <TeacherSection  teachers={teamCoaching} loading = {coachLoading} />
       <FeaturedSection />
